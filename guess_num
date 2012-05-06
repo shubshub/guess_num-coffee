@@ -1,0 +1,40 @@
+alert "Welcome To Guess The Number\n Created By Me :P"
+base = 20
+max = prompt "Set The Max Number Leave Empty For Default"
+if isNaN max
+  throw "Last time I checked #{max} was not a number :P"
+if max == null
+	max = base
+if max == ""
+	max = base
+num = Math.ceil(Math.random() * max)
+tries = 0
+last = "Didn't even try"
+guess = prompt "Guess The Number. (1-#{max})"
+if guess == null
+		throw "You Gave Up :P\n Tries Taken: #{tries}\n The Correct Number Was: #{num}\n Your Last Guess Was: #{last}"
+tries = tries+1
+while parseInt(guess) isnt num
+	pre = num
+	alert "Number was #{pre} Now its changing Keep Guessing :P"
+	num = Math.ceil(Math.random() * max)
+	last = guess
+	guess = prompt "Stats:\n Previous Number: #{pre}\n Previous Guess: #{guess}\n Numbers Of Tries: #{tries}\nHave Another Go :P. (1-#{max})"
+	if guess == null
+		throw "You Gave Up :P\n Tries Taken: #{tries}\n The Correct Number Was: #{num}\n Your Last Guess Was: #{last}"
+	tries = tries+1
+if tries > 20
+	alert "Final Grade: F\n Tries Taken #{tries}"
+	throw "Pffft Noob"
+if tries > 10
+	alert "Final Grade: C\n Tries Taken #{tries}"
+	throw "Give me a rematch you might get better"
+if tries > 4
+	alert "Final Grade: B\n Tries Taken: #{tries}"
+	throw "I Want A Rematch ..."
+if tries > 2
+	alert "Final Grade: A\n Tries Taken #{tries}"
+	throw "-_- REMATCH NOW!"
+if tries < 2
+	alert "Final Grade: A+\n Tries Taken #{tries}"
+	throw "OMFG REMATCH BITCH!"
